@@ -13,14 +13,6 @@
 <meta name="twitter:title" content="Angad Uday — Music Producer, Composer & Vocalist">
 <meta name="twitter:description" content="Music for film, series, and brands. Credits on Netflix, Amazon Prime, and more.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FF4D00'/><text y='72' x='50' text-anchor='middle' font-size='58' font-family='sans-serif' font-weight='bold' fill='white'>AU</text></svg>">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2QTV6FM38H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-2QTV6FM38H');
-</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -93,7 +85,6 @@
   #hero {
     background: var(--orange);
     padding-top: 56px;
-    overflow: hidden;
   }
 
   .hero-inner {
@@ -101,34 +92,21 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    gap: 24px;
   }
-
-  .hero-inner-text {
-    flex: 1;
-  }
-
+  .hero-text { flex: 1; }
   .hero-photo {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid rgba(0,0,0,0.15);
+    width: clamp(160px, 22vw, 280px);
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: top;
     flex-shrink: 0;
-    margin-left: 40px;
-    margin-bottom: 16px;
     opacity: 0;
     animation: slideUp 0.7s ease 0.7s forwards;
   }
-
-  .hero-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-  }
-
   @media (max-width: 768px) {
-    .hero-photo { width: 90px; height: 90px; margin-left: 16px; }
+    .hero-inner { flex-direction: column; align-items: flex-start; }
+    .hero-photo { width: 120px; }
   }
 
   .hero-tag {
@@ -141,6 +119,7 @@
     margin-bottom: 10px;
     opacity: 0;
     animation: slideUp 0.7s ease 0.3s forwards;
+    will-change: transform;
   }
 
   .hero-name {
@@ -152,10 +131,11 @@
     margin-bottom: 12px;
     opacity: 0;
     animation: slideUp 0.7s ease 0.45s forwards;
+    will-change: transform;
   }
 
   .hero-name span { display: block; color: var(--black); }
-  .hero-name .hero-first { display: block; color: var(--white); }
+  .hero-name .hero-first { display: block; color: var(--white); will-change: transform; }
 
   .hero-bio {
     font-size: 14px;
@@ -165,6 +145,7 @@
     line-height: 1.7;
     opacity: 0;
     animation: slideUp 0.7s ease 0.6s forwards;
+    will-change: transform;
   }
 
   /* SECTIONS */
@@ -538,12 +519,6 @@
     color: var(--white);
     margin-bottom: 10px;
   }
-  .hc-role {
-    font-family: 'Outfit', sans-serif;
-    font-size: 13px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.88);
-  }
   @media (max-width: 768px) {
     .highlights-grid { grid-template-columns: 1fr; }
   }
@@ -559,7 +534,7 @@
 
   .marquee-inner {
     display: inline-block;
-    animation: marquee 22s linear infinite;
+    animation: marquee 38s linear infinite;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 15px;
     letter-spacing: 0.18em;
@@ -625,9 +600,100 @@
 
   /* ANIMATIONS */
   @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes grain {
+    0%, 100% { transform: translate(0,0); }
+    10%       { transform: translate(-2%,-3%); }
+    30%       { transform: translate(3%,2%); }
+    50%       { transform: translate(-1%,4%); }
+    70%       { transform: translate(2%,-2%); }
+    90%       { transform: translate(-3%,1%); }
+  }
 
-  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal { opacity: 0; transform: translateX(-32px); transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
   .reveal.visible { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* SCROLL PROGRESS LINE */
+  #scroll-line {
+    position: fixed;
+    top: 0; left: 0;
+    width: 3px;
+    height: 0%;
+    background: var(--orange);
+    z-index: 200;
+    transition: height 0.05s linear;
+  }
+
+  /* GRAIN OVERLAY */
+  #hero::after {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    width: 200%; height: 200%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    pointer-events: none;
+    animation: grain 0.8s steps(1) infinite;
+    z-index: 1;
+  }
+  #hero { position: relative; }
+  .hero-inner { position: relative; z-index: 2; }
+
+  /* LINK UNDERLINE DRAW */
+  .nav-links a {
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 0; height: 1px;
+    background: var(--orange);
+    transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .nav-links a:hover::after,
+  .nav-links a.active::after { width: 100%; }
+  .nav-links a:hover { color: var(--white); }
+
+  .contact-btn {
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--orange);
+    transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .contact-btn:hover::after { width: 100%; }
+
+  /* CREDIT CARD HOVER */
+  .highlight-card {
+    transition: border-left-color 0.25s, transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+  }
+  .highlight-card:hover { border-left-color: var(--white); transform: translateX(4px); }
+  .hc-role {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.88);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.35s ease;
+  }
+  .highlight-card:hover .hc-role { max-height: 60px; opacity: 1; }
+  .hc-platform {
+    transform: translateY(6px);
+    transition: transform 0.3s ease, color 0.2s;
+  }
+  .highlight-card:hover .hc-platform { transform: translateY(0); color: var(--white); }
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
@@ -638,20 +704,6 @@
     footer { padding: 20px 24px; }
   }
 </style>
-  <!-- OG / Social Preview -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://angaduday.com">
-  <meta property="og:title" content="Angad Uday — Music Producer, Composer & Vocalist">
-  <meta property="og:description" content="Mumbai-based music producer and composer. Credits on Netflix, Amazon Prime, Zee5 and more.">
-  <meta property="og:image" content="https://angaduday.com/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Angad Uday — Music Producer, Composer & Vocalist">
-  <meta name="twitter:description" content="Mumbai-based music producer and composer. Credits on Netflix, Amazon Prime, Zee5 and more.">
-  <meta name="twitter:image" content="https://angaduday.com/og-image.jpg">
 </head>
 <body>
 
@@ -755,6 +807,7 @@ const SITE_DATA = {
 
 <!-- HTML — no need to edit below -->
 
+<div id="scroll-line"></div>
 <nav>
   <a class="nav-logo" href="#">Angad Uday</a>
   <ul class="nav-links">
@@ -767,14 +820,12 @@ const SITE_DATA = {
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-inner-text">
+    <div class="hero-text">
       <div class="hero-tag" id="heroTag"></div>
       <h1 class="hero-name" id="heroName"></h1>
       <p class="hero-bio" id="heroBio"></p>
     </div>
-    <div class="hero-photo">
-      <img src="/angad-photo.jpg" alt="Angad Uday">
-    </div>
+    <img class="hero-photo" src="/angad-photo.jpg" alt="Angad Uday">
   </div>
 </section>
 
@@ -1016,38 +1067,84 @@ if (form) {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Parallax on hero name
-const heroName = document.getElementById('heroName');
+// Scroll progress line
+const scrollLine = document.getElementById('scroll-line');
+window.addEventListener('scroll', () => {
+  const total = document.body.scrollHeight - window.innerHeight;
+  const pct   = (window.scrollY / total) * 100;
+  if (scrollLine) scrollLine.style.height = pct + '%';
+}, { passive: true });
+
+// Hero name letter split
+(function splitHeroName() {
+  const el = document.getElementById('heroName');
+  if (!el) return;
+  const observer = new MutationObserver(() => {
+    const text = el.textContent.trim();
+    if (!text) return;
+    observer.disconnect();
+    el.innerHTML = text.split('').map((ch, i) =>
+      ch === ' '
+        ? '<span style="display:inline-block;width:0.3em"></span>'
+        : `<span style="display:inline-block;opacity:0;transform:translateY(24px);transition:opacity 0.4s ease ${0.05 + i * 0.04}s,transform 0.4s ease ${0.05 + i * 0.04}s">${ch}</span>`
+    ).join('');
+    requestAnimationFrame(() => {
+      el.querySelectorAll('span').forEach(s => {
+        s.style.opacity = '1';
+        s.style.transform = 'translateY(0)';
+      });
+    });
+  });
+  observer.observe(el, { childList: true, subtree: true, characterData: true });
+})();
+
+// Text scramble on section titles
+const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+function scramble(el) {
+  const original = el.textContent;
+  let frame = 0;
+  const total = 16;
+  const interval = setInterval(() => {
+    el.textContent = original.split('').map((ch, i) => {
+      if (ch === ' ') return ' ';
+      if (frame / total > i / original.length) return ch;
+      return chars[Math.floor(Math.random() * chars.length)];
+    }).join('');
+    if (++frame > total) { el.textContent = original; clearInterval(interval); }
+  }, 35);
+}
+const scrambleObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { scramble(e.target); scrambleObserver.unobserve(e.target); }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.section-title').forEach(el => scrambleObserver.observe(el));
+
+
+// Staggered reveal — add delay classes to siblings
+document.querySelectorAll('.credits-group, .services-grid').forEach(group => {
+  group.querySelectorAll('.reveal').forEach((el, i) => {
+    el.classList.add(`reveal-delay-${Math.min(i % 4 + 1, 4)}`);
+  });
+});
+
+// Parallax on full hero
+const heroInner   = document.querySelector('.hero-inner');
 const heroSection = document.getElementById('hero');
 window.addEventListener('scroll', () => {
-  if (!heroName || !heroSection) return;
+  if (!heroInner || !heroSection) return;
   const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
   const scrollY = window.scrollY;
   if (scrollY > heroBottom) return;
-  const first = heroName.querySelector('.hero-first');
-  const second = heroName.querySelector('span:last-child');
-  if (first) first.style.transform = `translateY(${scrollY * 0.06}px)`;
-  if (second) second.style.transform = `translateY(${scrollY * 0.12}px)`;
+  heroInner.style.transform = `translateY(${scrollY * 0.3}px)`;
 }, { passive: true });
 
-// Single audio playback + GA tracking
+// Single audio playback
 document.querySelectorAll('.bgm-audio').forEach(audio => {
   audio.addEventListener('play', () => {
-    // Pause all others
     document.querySelectorAll('.bgm-audio').forEach(other => {
       if (other !== audio) other.pause();
     });
-    // Fire GA event with track name
-    const trackName = audio.previousElementSibling
-      ? audio.previousElementSibling.textContent.trim()
-      : audio.src.split('/').pop().replace(/\.\w+$/, '').replace(/_/g, ' ');
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'audio_play', {
-        event_category: 'Work Samples',
-        event_label: trackName,
-        track_name: trackName
-      });
-    }
   });
 });
 </script>
