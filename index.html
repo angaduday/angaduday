@@ -875,8 +875,7 @@ const SITE_DATA = {
 <section id="contact">
   <h2 class="contact-heading reveal">Let's Make<span>Something.</span></h2>
   <p class="contact-bio reveal">Music has always been less of a career choice and more of a biological requirement. I'm a Mumbai-based composer and producer working across film, series, advertising, and live production, driven by a detail-oriented approach and a deep belief that the wrong music can ruin anything. So let's get it right.</p>
-  <form class="contact-form reveal" name="contact" netlify netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="contact">
+  <form class="contact-form reveal" action="https://formspree.io/f/xqeyvbqa" method="POST">
     <input type="text" name="name" placeholder="Your name" required>
     <input type="email" name="email" placeholder="Your email" required>
     <textarea name="message" placeholder="Tell me about the project"></textarea>
@@ -1062,18 +1061,6 @@ window.addEventListener('scroll', () => {
     a.classList.toggle('active', a.getAttribute('href') === '#' + current);
   });
 });
-
-// Contact form
-const form = document.querySelector('.contact-form');
-if (form) {
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-    const data = new FormData(form);
-    await fetch('/', { method: 'POST', body: data });
-    form.style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-  });
-}
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
