@@ -92,21 +92,29 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 24px;
   }
   .hero-text { flex: 1; }
   .hero-photo {
-    width: clamp(160px, 22vw, 280px);
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    object-position: top;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(0,0,0,0.15);
     flex-shrink: 0;
+    margin-left: 40px;
+    margin-bottom: 16px;
     opacity: 0;
     animation: slideUp 0.7s ease 0.7s forwards;
   }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
   @media (max-width: 768px) {
-    .hero-inner { flex-direction: column; align-items: flex-start; }
-    .hero-photo { width: 120px; }
+    .hero-inner { flex-direction: row; align-items: flex-end; }
+    .hero-photo { width: 90px; height: 90px; margin-left: 16px; }
   }
 
   .hero-tag {
@@ -825,7 +833,9 @@ const SITE_DATA = {
       <h1 class="hero-name" id="heroName"></h1>
       <p class="hero-bio" id="heroBio"></p>
     </div>
-    <img class="hero-photo" src="/angad-photo.jpg" alt="Angad Uday">
+    <div class="hero-photo">
+      <img src="/angad-photo.jpg" alt="Angad Uday">
+    </div>
   </div>
 </section>
 
