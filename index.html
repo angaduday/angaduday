@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angad Uday — Music Producer, Composer & Vocalist</title>
+<meta name="description" content="Angad Uday is a Mumbai-based music producer, composer, and vocalist. Credits on Netflix, Amazon Prime, Zee5, and Voot.">
+<meta property="og:title" content="Angad Uday — Music Producer, Composer & Vocalist">
+<meta property="og:description" content="Music for film, series, and brands. Credits on Netflix, Amazon Prime, and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://angaduday.com">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angad Uday — Music Producer, Composer & Vocalist">
+<meta name="twitter:description" content="Music for film, series, and brands. Credits on Netflix, Amazon Prime, and more.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FF4D00'/><text y='72' x='50' text-anchor='middle' font-size='58' font-family='sans-serif' font-weight='bold' fill='white'>AU</text></svg>">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2QTV6FM38H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2QTV6FM38H');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================
+   YOUR CONTENT — Edit only SITE_DATA in the <script>
+   No need to touch CSS or HTML.
+   ===================================================== */
+
+  :root {
+    --orange:    #FF4D00;
+    --black:     #111111;
+    --white:     #FFFFFF;
+    --off-white: #F5F5F3;
+    --gray:      #555555;
+    --border:    #E4E4E4;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--black);
+    padding: 0 48px;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 0.6s ease 0.1s forwards;
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+
+  .nav-links a {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--orange); }
+
+  /* HERO */
+  #hero {
+    background: var(--orange);
+    padding-top: 56px;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    padding: 20px 48px 16px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .hero-inner-text {
+    flex: 1;
+  }
+
+  .hero-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(0,0,0,0.15);
+    flex-shrink: 0;
+    margin-left: 40px;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: slideUp 0.7s ease 0.7s forwards;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  @media (max-width: 768px) {
+    .hero-photo { width: 90px; height: 90px; margin-left: 16px; }
+  }
+
+  .hero-tag {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.65);
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: slideUp 0.7s ease 0.3s forwards;
+  }
+
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(96px, 16vw, 200px);
+    line-height: 0.88;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: slideUp 0.7s ease 0.45s forwards;
+  }
+
+  .hero-name span { display: block; color: var(--black); }
+  .hero-name .hero-first { display: block; color: var(--white); }
+
+  .hero-bio {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(0,0,0,0.75);
+    max-width: 400px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: slideUp 0.7s ease 0.6s forwards;
+  }
+
+  /* SECTIONS */
+  section { padding: 28px 48px; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--black);
+    padding-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 6vw, 64px);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: var(--black);
+  }
+
+  /* CREDITS */
+  #credits { background: var(--black); }
+  #credits .section-title { color: var(--white); }
+  #credits .section-header { border-bottom-color: var(--orange); }
+  #credits .credits-group-label { color: rgba(255,255,255,0.4); border-bottom-color: rgba(255,255,255,0.1); }
+
+  .credits-group { margin-bottom: 24px; }
+
+  .credits-group-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(18px, 2.5vw, 26px);
+    letter-spacing: 0.06em;
+    color: var(--gray);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hc-linked { text-decoration: none; cursor: pointer; }
+  .hc-linked:hover { border-left-color: var(--white); }
+  .hc-linked .hc-title { transition: color 0.15s; }
+  .hc-linked:hover .hc-title { color: rgba(255,255,255,0.7); }
+  .show-more-btn {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.7);
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: all 0.2s;
+    display: block;
+  }
+  .show-more-btn:hover { border-color: var(--orange); color: var(--orange); }
+  .hc-hidden { display: none; }
+
+  /* Advertising — plain, no interaction */
+  .ad-grid { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 0; }
+
+  .ad-tag {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    padding: 6px 16px;
+  }
+
+  /* WORK SAMPLES */
+  #samples { background: var(--off-white); }
+
+  .sample-category { margin-bottom: 0; padding: 24px 0; border-bottom: 1px solid var(--border); }
+  .sample-category:last-child { border-bottom: none; }
+  .sample-category:nth-child(even) { background: var(--white); margin: 0 -48px; padding: 24px 48px; }
+  .sample-category:nth-child(odd) { background: var(--off-white); margin: 0 -48px; padding: 24px 48px; }
+
+  .sample-category-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(26px, 4vw, 40px);
+    letter-spacing: 0.06em;
+    color: var(--black);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Single-link category — no sub-label, just the link row */
+  .sample-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    transition: padding-left 0.15s;
+  }
+
+  .sample-link:hover { padding-left: 8px; }
+  .sample-link:hover .sl-name { color: var(--orange); }
+
+  .sl-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(22px, 3vw, 32px);
+    letter-spacing: 0.03em;
+    color: var(--black);
+    transition: color 0.15s;
+  }
+
+  .highlights-grid .sl-name {
+    font-size: clamp(16px, 2vw, 22px);
+  }
+
+  .sl-arrow {
+    font-size: 18px;
+    color: var(--orange);
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+
+  /* BGM PLAYER */
+  .bgm-track {
+    padding: 4px 0;
+    border-bottom: none;
+  }
+  .bgm-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(20px, 2.5vw, 28px);
+    letter-spacing: 0.03em;
+    color: var(--black);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .bgm-title.small { font-size: clamp(15px, 1.8vw, 20px); }
+  .bgm-audio {
+    width: 100%;
+    height: 32px;
+    display: block;
+    margin-top: 4px;
+    accent-color: var(--orange);
+  }
+
+  /* UPCOMING PROJECT CARD */
+  .upcoming-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .upcoming-left {}
+  .upcoming-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(22px, 3vw, 32px);
+    letter-spacing: 0.03em;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+  .upcoming-meta {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gray);
+  }
+  .upcoming-meta span {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .upcoming-btn {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 9px 18px;
+    text-decoration: none;
+    border: 1.5px solid var(--black);
+    color: var(--black);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .upcoming-btn:hover { background: var(--black); color: var(--white); }
+
+  /* On Fire — special layout */
+  .on-fire-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(22px, 3vw, 32px);
+    letter-spacing: 0.03em;
+    color: var(--black);
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+  }
+
+  .on-fire-sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--gray);
+    margin-bottom: 10px;
+  }
+
+  .on-fire-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+
+  .on-fire-btn {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 9px 18px;
+    text-decoration: none;
+    border: 1.5px solid var(--black);
+    color: var(--black);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .on-fire-btn:hover { background: var(--black); color: var(--white); }
+
+  /* SERVICES */
+  #services { background: var(--black); }
+  #services .section-title { color: var(--white); }
+  #services .section-header { border-bottom-color: var(--orange); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2px;
+  }
+
+  .svc-card {
+    background: #1c1c1c;
+    padding: 24px 20px;
+    border-left: 3px solid transparent;
+    transition: border-left-color 0.2s;
+  }
+  .svc-card:hover { border-left-color: var(--orange); }
+
+  .svc-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .svc-desc {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.7;
+  }
+
+  /* CONTACT */
+  #contact { background: var(--orange); }
+
+  .contact-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 10vw, 120px);
+    letter-spacing: 0.02em;
+    line-height: 0.9;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .contact-heading span { display: block; color: var(--black); }
+
+  .contact-sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(0,0,0,0.75);
+    max-width: 420px;
+    line-height: 1.7;
+  }
+
+  .contact-bio {
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(0,0,0,0.75);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .contact-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .contact-btn {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .contact-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  .btn-white { background: var(--white); color: var(--orange); }
+  .btn-white:hover { background: #f0f0f0; }
+  .btn-black-solid { background: var(--black); color: var(--white); }
+  .btn-black-solid:hover { background: #2a2a2a; }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    padding: 20px 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 3px solid var(--orange);
+  }
+
+  .footer-copy {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* CREDITS CARDS */
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .highlight-card {
+    background: var(--black);
+    padding: 28px 24px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-left: 3px solid var(--orange);
+  }
+  .hc-platform {
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+  .hc-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 4vw, 52px);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .hc-role {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.88);
+  }
+  @media (max-width: 768px) {
+    .highlights-grid { grid-template-columns: 1fr; }
+  }
+
+  /* MARQUEE */
+  .marquee-strip {
+    background: var(--black);
+    color: var(--orange);
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 22s linear infinite;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.18em;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ACTIVE NAV */
+  .nav-links a.active { color: var(--orange); }
+
+  /* CONTACT FORM */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 480px;
+    margin-bottom: 24px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    background: rgba(0,0,0,0.08);
+    border: 1.5px solid rgba(0,0,0,0.4);
+    color: var(--black);
+    padding: 12px 16px;
+    outline: none;
+    resize: none;
+    transition: border-color 0.2s;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder { color: rgba(0,0,0,0.55); }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus { border-color: var(--black); }
+
+  .contact-form textarea { height: 100px; }
+
+  .contact-form button {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.2s;
+  }
+
+  .contact-form button:hover { background: #333; }
+  .form-success { font-size: 13px; color: rgba(0,0,0,0.6); display: none; margin-top: 4px; }
+
+
+  /* ANIMATIONS */
+  @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero-inner { padding: 20px 24px 16px; }
+    section { padding: 28px 24px; }
+    footer { padding: 20px 24px; }
+  }
+</style>
+  <!-- OG / Social Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://angaduday.com">
+  <meta property="og:title" content="Angad Uday — Music Producer, Composer & Vocalist">
+  <meta property="og:description" content="Mumbai-based music producer and composer. Credits on Netflix, Amazon Prime, Zee5 and more.">
+  <meta property="og:image" content="https://angaduday.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Angad Uday — Music Producer, Composer & Vocalist">
+  <meta name="twitter:description" content="Mumbai-based music producer and composer. Credits on Netflix, Amazon Prime, Zee5 and more.">
+  <meta name="twitter:image" content="https://angaduday.com/og-image.jpg">
+</head>
+<body>
+
+<!-- =====================================================
+     ✦ YOUR CONTENT — Edit freely inside SITE_DATA ✦
+     Save file, re-upload to Netlify to update.
+     ===================================================== -->
+<script>
+const SITE_DATA = {
+
+  name:     "Angad Uday",
+  tagline:  "Music Producer · Composer · Vocalist",
+  bio:      "Music for film, series, and brands.",
+
+  imdb:      "https://www.imdb.com/name/nm10140983/",
+  instagram: "https://instagram.com/angaduday",
+  email:     "angad.uday@gmail.com",
+  whatsapp:  "918527344772",
+  youtube:   "https://youtube.com/playlist?list=PLelIVuouvGQG-UqRc4fAzKpTW9f-Vj7Y3",
+
+  films: [
+    { title: "Curry & Cyanide: The Jolly Joseph Case", year: "2023", platform: "Netflix",      platformClass: "netflix", role: "Score Co-Composer & Co-Producer",       link: "https://www.imdb.com/title/tt30177031/" },
+    { title: "Jo Tera Hai Woh Mera Hai",              year: "2024", platform: "JioCinema",    platformClass: "other",   role: "Score Co-Composer & Co-Producer",       link: "https://www.imdb.com/title/tt28356014/" },
+    { title: "Gold",                                   year: "2022", platform: "Amazon Prime", platformClass: "amazon",  role: "Additional Music Producer",             link: "https://www.imdb.com/title/tt15340808/" }
+  ],
+
+  webSeries: [
+    { title: "Paatal Lok Season 2",        year: "2025", platform: "Amazon Prime", platformClass: "amazon",  role: "Additional Music Composer & Producer", link: "https://www.imdb.com/title/tt9680440/" },
+    { title: "Heeramandi",                 year: "2024", platform: "Netflix",      platformClass: "netflix", role: "Additional Music Producer & Composer",  link: "https://www.imdb.com/title/tt15204292/" },
+    { title: "CA Topper Tribhuvan Mishra", year: "2024", platform: "Netflix",      platformClass: "netflix", role: "Music Producer",                        link: "https://www.imdb.com/title/tt32832648/" },
+    { title: "Dancing On The Grave",       year: "2023", platform: "Amazon Prime", platformClass: "amazon",  role: "Music Co-Composer & Producer",           link: "https://www.imdb.com/title/tt21908726/" },
+    { title: "The Broken News Season 1 & 2", year: "2022", platform: "Zee 5",     platformClass: "zee",     role: "Music Producer",                         link: "https://www.imdb.com/title/tt20319332/" },
+    { title: "Black Widows",               year: "2020", platform: "Zee 5",        platformClass: "zee",     role: "Music Producer",                         link: "https://www.imdb.com/title/tt13032762/" },
+    { title: "The Raikar Case",            year: "2020", platform: "Voot",         platformClass: "voot",    role: "Music Producer",                         link: "https://www.imdb.com/title/tt11953232/" }
+  ],
+
+  advertising: [
+    "Tata Trent: Westside", "Titan", "Reebok India", "Piramal", "Policybazaar", "Candy\u2019d Closet", "Mahindra Lifespaces", "BARE Bombay"
+  ],
+
+  events: [
+    { title: "Google Play Live India 2023 Livestream", platform: "Live Event", platformClass: "other", role: "Backing Tracks Production & Composition", desc: "", link: "https://www.youtube.com/live/5QEeEQoEFGU?si=23SuN21aC0HLiJyW" },
+    { title: "House of Gemini",                        platform: "Live Event", platformClass: "other", role: "Backing Tracks Production & Composition", desc: "", link: "https://youtu.be/n1jTjTgV3gk?si=n4iNP_JnJar68ac3" }
+  ],
+
+  services: [
+    { name: "Score & BGM",      desc: "Full background score composition and production for film, web series, and documentary." },
+    { name: "Song Production",  desc: "End-to-end production for OSTs, singles, and album tracks. Arrangement through delivery." },
+    { name: "Ad & Brand Music", desc: "Music composition and production for advertising. Brief-first, fast turnaround." }
+  ],
+
+  // Work samples — single-link categories collapse to one row, no sub-label
+  workSamples: {
+    playlist:    { label: "Advertising & Promotional Work",  url: "https://youtube.com/playlist?list=PLelIVuouvGQG-UqRc4fAzKpTW9f-Vj7Y3" },
+    audioSamples:{ label: "Other Work Sample Audio",         url: "https://drive.google.com/drive/folders/1XE6NDIdek2jAPjFJHQ3eJUpq20zaleXR?usp=sharing" },
+    bgmSamples: [
+      { title: "Anna Theme",              url: "https://res.cloudinary.com/dd2lkuurc/video/upload/v1773823047/Anna_Theme_gkip68.mp3" },
+      { title: "Bartan Fight",            url: "https://res.cloudinary.com/dd2lkuurc/video/upload/v1773823047/Bartan_Fight_kngevs.wav" },
+      { title: "Don\'t Call Me A Loser", url: "https://res.cloudinary.com/dd2lkuurc/video/upload/v1773823046/Don_t_Call_Me_A_Loser_cpzkpb.wav" },
+      { title: "Jungle Body Burning",     url: "https://res.cloudinary.com/dd2lkuurc/video/upload/v1773823050/Jungle_Body_Burning_tu4gco.wav" },
+      { title: "Post Kill",               url: "https://res.cloudinary.com/dd2lkuurc/video/upload/v1773823048/Post_Kill_yudqyq.wav" }
+    ],
+    liveEventSamples: [
+      {
+        event: "House of Gemini · 2024",
+        tracks: [
+          { title: "Celebration Theme",            url: "https://res.cloudinary.com/dd2lkuurc/video/upload/v1773823035/Celebration_Theme_hmokwg.wav" },
+          { title: "Google Gemini Theme Track",    url: "https://res.cloudinary.com/dd2lkuurc/video/upload/v1773823035/Google_Gemini_Theme_Track_Complete_sgmvma.wav" }
+        ]
+      },
+      {
+        event: "Google Play Live India · 2023",
+        tracks: [
+          { title: "Celebration Theme",            url: "https://res.cloudinary.com/dd2lkuurc/video/upload/v1773833878/Celebration_Theme_un4yv2.mp3" },
+          { title: "Cold Open / Roast Battle",     url: "https://res.cloudinary.com/dd2lkuurc/video/upload/v1773833879/Cold_Open_Roast_Battle_v3_u4peiz.mp3" },
+          { title: "Google Play Live Theme Music", url: "https://res.cloudinary.com/dd2lkuurc/video/upload/v1773833879/Google_Play_Live_India_Event_2023_Theme_Music_fef7at.mp3" },
+          { title: "Loser Theme",                  url: "https://res.cloudinary.com/dd2lkuurc/video/upload/v1773833879/Loser_theme_axkvqy.mp3" }
+        ]
+      }
+    ],
+    upcoming: {
+      title: "Sisters of the Wildflower",
+      role: "Composer",
+      type: "Documentary Feature",
+      status: "Unreleased",
+      trailerUrl: "https://www.instagram.com/reel/DOp7-n4jIBc/"
+    },
+    acappella:   { label: "Acappella Mixing Work",           url: "https://linktr.ee/raagtonicproductions" },
+    production: [
+      { name: "Shayari",  url: "https://youtu.be/tHsGf907wJQ" },
+      { name: "Machhar",  url: "https://www.youtube.com/watch?v=mJ5jEH5LSR4" }
+    ],
+    onFire: {
+      youtube:    "https://www.youtube.com/watch?v=SLbAOLBRfwE",
+      spotify:    "https://open.spotify.com/album/6MFZ5f1lbL5vwilIGjQnJj",
+      appleMusic: "https://itunes.apple.com/in/album/on-fire/1429964070?i=1429964197"
+    }
+  }
+};
+</script>
+
+<!-- HTML — no need to edit below -->
+
+<nav>
+  <a class="nav-logo" href="#">Angad Uday</a>
+  <ul class="nav-links">
+    <li><a href="#credits">Credits</a></li>
+    <li><a href="#samples">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-inner-text">
+      <div class="hero-tag" id="heroTag"></div>
+      <h1 class="hero-name" id="heroName"></h1>
+      <p class="hero-bio" id="heroBio"></p>
+    </div>
+    <div class="hero-photo">
+      <img src="/angad-photo.jpg" alt="Angad Uday">
+    </div>
+  </div>
+</section>
+
+<div class="marquee-strip" aria-hidden="true">
+  <span class="marquee-inner" id="marqueeInner"></span>
+</div>
+
+<noscript>
+  <div style="position:absolute;left:-9999px;">
+    <h1>Angad Uday — Music Producer, Composer & Vocalist</h1>
+    <p>Mumbai-based music producer, composer, and vocalist with credits on Netflix, Amazon Prime, Zee5, and Voot. Works on film scores, web series, advertising, and live events.</p>
+    <p>Credits include: Curry & Cyanide (Netflix), Gold (Amazon Prime), Paatal Lok Season 2 (Amazon Prime), Heeramandi (Netflix), CA Topper Tribhuvan Mishra (Netflix), Dancing On The Grave (Amazon Prime), The Broken News Season 1 & 2 (Zee5), Black Widows (Zee5), The Raikar Case (Voot).</p>
+  </div>
+</noscript>
+
+<section id="credits">
+  <div class="section-header reveal">
+    <h2 class="section-title">Credits</h2>
+  </div>
+  <div id="creditsInner"></div>
+</section>
+
+<section id="samples">
+  <div class="section-header reveal">
+    <h2 class="section-title">Work Samples</h2>
+  </div>
+  <div id="samplesInner"></div>
+</section>
+
+<section id="services">
+  <div class="section-header reveal">
+    <h2 class="section-title">Services</h2>
+  </div>
+  <div class="services-grid" id="servicesGrid"></div>
+</section>
+
+<section id="contact">
+  <h2 class="contact-heading reveal">Let's Make<span>Something.</span></h2>
+  <p class="contact-bio reveal">Music has always been less of a career choice and more of a biological requirement. I'm a Mumbai-based composer and producer working across film, series, advertising, and live production, driven by a detail-oriented approach and a deep belief that the wrong music can ruin anything. So let's get it right.</p>
+  <form class="contact-form reveal" name="contact" netlify netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="contact">
+    <input type="text" name="name" placeholder="Your name" required>
+    <input type="email" name="email" placeholder="Your email" required>
+    <textarea name="message" placeholder="Tell me about the project"></textarea>
+    <button type="submit">Send</button>
+  </form>
+  <p class="form-success" id="formSuccess">Got it. I'll be in touch.</p>
+  <div class="contact-buttons reveal" id="contactBtns"></div>
+</section>
+
+<footer>
+  <span class="footer-copy" id="footerCopy"></span>
+</footer>
+
+<script>
+const d = SITE_DATA;
+
+document.getElementById('heroTag').textContent    = d.tagline;
+document.getElementById('heroBio').textContent    = d.bio;
+document.getElementById('footerCopy').textContent = '\u00A9 2026 ' + d.name;
+
+document.getElementById('heroName').innerHTML =
+  '<span class="hero-first">' + d.name.split(' ')[0] + '</span><span>' + d.name.split(' ')[1] + '</span>';
+
+// SVG logos for contact buttons
+const logoWhatsApp = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
+
+const logoIMDb = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.31 9.588v.005c-.077-.048-.161-.089-.241-.127.079.038.162.078.241.122zM7.59 5.298H5.27v13.404h2.32V5.298zm4.002 0l-1.067 5.515-1.016-5.515H6.82v13.404h2.014V9.898l1.201 8.804h1.479l1.168-8.918v8.918h2.014V5.298h-3.104zm7.935 2.85c-.162-.543-.453-.862-.894-.966-.44-.103-.912-.155-1.415-.155h-.592V18.7h.59c.617 0 1.124-.054 1.52-.162.396-.108.69-.277.881-.507.191-.229.318-.536.381-.921.063-.385.095-.894.095-1.528v-5.27c0-.611-.026-1.084-.076-1.422a2.21 2.21 0 00-.49-1.34zm-1.046 7.857c0 .412-.077.695-.231.849-.155.154-.407.231-.757.231h-.075V7.935h.075c.35 0 .602.077.757.231.154.154.231.437.231.849v6.99zM24 19.692V4.308A4.308 4.308 0 0019.692 0H4.308A4.308 4.308 0 000 4.308v15.384A4.308 4.308 0 004.308 24h15.384A4.308 4.308 0 0024 19.692z"/></svg>`;
+
+const logoInstagram = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>`;
+
+document.getElementById('contactBtns').innerHTML = `
+  <a class="contact-btn btn-white"       href="mailto:${d.email}">${d.email}</a>
+  <a class="contact-btn btn-black-solid" href="https://wa.me/${d.whatsapp}" target="_blank">${logoWhatsApp} WhatsApp</a>
+  <a class="contact-btn btn-black-solid" href="${d.imdb}"      target="_blank">${logoIMDb} IMDb</a>
+  <a class="contact-btn btn-black-solid" href="${d.instagram}" target="_blank">${logoInstagram} Instagram</a>
+`;
+
+// Credit card helper
+function creditCard(c) {
+  const wrap = c.link ? `href="${c.link}" target="_blank"` : '';
+  const tag = c.link ? 'a' : 'div';
+  const featured = (c.title.includes('Curry') || c.title.includes('Jo Tera')) ? ' hc-featured' : '';
+  return `<${tag} class="highlight-card${c.link ? ' hc-linked' : ''}${featured}" ${wrap}>
+    <div class="hc-platform">${c.platform}${c.year ? ' · ' + c.year : ''}</div>
+    <div class="hc-title">${c.title}${c.link ? ' ↗' : ''}</div>
+    <div class="hc-role">${c.role}</div>
+  </${tag}>`;
+}
+
+document.getElementById('creditsInner').innerHTML = `
+  <div class="credits-group reveal">
+    <div class="credits-group-label">Web Series</div>
+    <div class="highlights-grid">
+      ${d.webSeries.slice(0,4).map(creditCard).join('')}
+    </div>
+    <div class="highlights-grid hc-hidden" id="moreWebSeries">
+      ${d.webSeries.slice(4).map(creditCard).join('')}
+    </div>
+    ${d.webSeries.length > 4 ? `<button class="show-more-btn" onclick="const el=document.getElementById('moreWebSeries');el.classList.toggle('hc-hidden');this.textContent=el.classList.contains('hc-hidden')?'Show More':'Show Less'">Show More</button>` : ''}
+  </div>
+  <div class="credits-group reveal">
+    <div class="credits-group-label">Films</div>
+    <div class="highlights-grid">${d.films.map(creditCard).join('')}</div>
+  </div>
+  <div class="credits-group reveal">
+    <div class="credits-group-label">Promotional & Advertising</div>
+    <div class="ad-grid">${d.advertising.map(a => `<span class="ad-tag">${a}</span>`).join('')}</div>
+  </div>
+  <div class="credits-group reveal">
+    <div class="credits-group-label">Live Events</div>
+    <div class="highlights-grid">${d.events.map(creditCard).join('')}</div>
+  </div>
+`;
+
+// Work samples
+const ws = d.workSamples;
+document.getElementById('samplesInner').innerHTML = `
+
+  <div class="sample-category reveal">
+    <a class="sample-link" href="${ws.playlist.url}" target="_blank">
+      <span class="sl-name">${ws.playlist.label}</span>
+      <span class="sl-arrow">↗</span>
+    </a>
+  </div>
+
+  <div class="sample-category reveal">
+    <div class="upcoming-card">
+      <div class="upcoming-left">
+        <div class="upcoming-title">${ws.upcoming.title}</div>
+        <div class="upcoming-meta">${ws.upcoming.type} · ${ws.upcoming.role}<span>${ws.upcoming.status}</span></div>
+      </div>
+      <a class="upcoming-btn" href="${ws.upcoming.trailerUrl}" target="_blank">Watch Trailer ↗</a>
+    </div>
+  </div>
+
+  <div class="sample-category reveal">
+    <div class="sample-category-label">BGM Samples</div>
+    <div id="bgmPlayer">
+      ${ws.bgmSamples.map((t, i) => `
+        <div class="bgm-track">
+          <span class="bgm-title">${t.title}</span>
+          <audio class="bgm-audio" controls src="${t.url}" preload="none"></audio>
+        </div>
+      `).join('')}
+    </div>
+  </div>
+
+  <div class="sample-category reveal">
+    <div class="sample-category-label">Live Event Tracks</div>
+    ${ws.liveEventSamples.map((group, gi) => `
+      <div class="credits-group-label" style="font-size:clamp(18px,2.5vw,26px);letter-spacing:0.06em;color:var(--orange);margin:20px 0 8px;padding-bottom:10px;border-bottom:1px solid var(--border);">${group.event}</div>
+      ${group.tracks.map((t, ti) => {
+        const idx = 100 + gi * 20 + ti;
+        return `<div class="bgm-track">
+          <span class="bgm-title small">${t.title}</span>
+          <audio class="bgm-audio" controls src="${t.url}" preload="none"></audio>
+        </div>`;
+      }).join('')}
+    `).join('')}
+  </div>
+
+  <div class="sample-category reveal">
+    <a class="sample-link" href="${ws.acappella.url}" target="_blank">
+      <span class="sl-name">${ws.acappella.label}</span>
+      <span class="sl-arrow">↗</span>
+    </a>
+  </div>
+
+  <div class="sample-category reveal">
+    <div class="sample-category-label">Artist Production</div>
+    <div class="highlights-grid" style="background:transparent;">
+    ${ws.production.map(p => `
+      <a class="sample-link" href="${p.url}" target="_blank">
+        <span class="sl-name">${p.name}</span>
+        <span class="sl-arrow">↗</span>
+      </a>
+    `).join('')}
+    </div>
+  </div>
+
+  <div class="sample-category reveal">
+    <div class="sample-category-label">Original Work</div>
+    <div class="on-fire-sub" style="margin-bottom:12px;">Singer-songwriter. More coming.</div>
+    <div class="on-fire-heading">On Fire</div>
+    <div class="on-fire-sub">Original Single</div>
+    <div class="on-fire-links">
+      <a class="on-fire-btn" href="${ws.onFire.youtube}" target="_blank">YouTube</a>
+      <a class="on-fire-btn" href="${ws.onFire.spotify}" target="_blank">Spotify</a>
+      <a class="on-fire-btn" href="${ws.onFire.appleMusic}" target="_blank">Apple Music</a>
+    </div>
+  </div>
+`;
+
+document.getElementById('servicesGrid').innerHTML = d.services.map(s => `
+  <div class="svc-card reveal">
+    <div class="svc-name">${s.name}</div>
+    <p class="svc-desc">${s.desc}</p>
+  </div>
+`).join('');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), 60);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+// Marquee
+const marqueeText = 'Film · Series · Advertising · Live Events · Score · Production · Composition · ';
+document.getElementById('marqueeInner').textContent = marqueeText.repeat(6);
+
+// Active nav scrollspy
+const navLinks = document.querySelectorAll('.nav-links a');
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 80) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+
+// Contact form
+const form = document.querySelector('.contact-form');
+if (form) {
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const data = new FormData(form);
+    await fetch('/', { method: 'POST', body: data });
+    form.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+}
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Parallax on hero name
+const heroName = document.getElementById('heroName');
+const heroSection = document.getElementById('hero');
+window.addEventListener('scroll', () => {
+  if (!heroName || !heroSection) return;
+  const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+  const scrollY = window.scrollY;
+  if (scrollY > heroBottom) return;
+  const first = heroName.querySelector('.hero-first');
+  const second = heroName.querySelector('span:last-child');
+  if (first) first.style.transform = `translateY(${scrollY * 0.06}px)`;
+  if (second) second.style.transform = `translateY(${scrollY * 0.12}px)`;
+}, { passive: true });
+
+// Single audio playback + GA tracking
+document.querySelectorAll('.bgm-audio').forEach(audio => {
+  audio.addEventListener('play', () => {
+    // Pause all others
+    document.querySelectorAll('.bgm-audio').forEach(other => {
+      if (other !== audio) other.pause();
+    });
+    // Fire GA event with track name
+    const trackName = audio.previousElementSibling
+      ? audio.previousElementSibling.textContent.trim()
+      : audio.src.split('/').pop().replace(/\.\w+$/, '').replace(/_/g, ' ');
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'audio_play', {
+        event_category: 'Work Samples',
+        event_label: trackName,
+        track_name: trackName
+      });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
