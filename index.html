@@ -213,7 +213,7 @@
     display: block;
   }
   .show-more-btn:hover { border-color: var(--orange); color: var(--orange); }
-  .hc-hidden { display: none; }
+  .hc-hidden { display: none !important; }
 
   /* Advertising — plain, no interaction */
   .ad-grid { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 0; }
@@ -1120,7 +1120,7 @@ document.querySelectorAll('.section-title').forEach(el => scrambleObserver.obser
 
 // Staggered reveal — add delay classes to siblings
 document.querySelectorAll('.credits-group, .services-grid').forEach(group => {
-  group.querySelectorAll('.reveal').forEach((el, i) => {
+  group.querySelectorAll('.reveal:not(.hc-hidden *)').forEach((el, i) => {
     el.classList.add(`reveal-delay-${Math.min(i % 4 + 1, 4)}`);
   });
 });
