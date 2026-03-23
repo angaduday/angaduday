@@ -349,7 +349,8 @@
     transition: opacity 0.3s ease, background 0.2s;
     font-size: 18px;
   }
-  .yt-arrow:hover { background: var(--orange); }
+  .yt-arrow:focus { outline: none; }
+  .yt-arrow::-moz-focus-inner { border: 0; }
   .yt-arrow.prev { left: -22px; }
   .yt-arrow.next { right: -22px; }
   .yt-arrow.hidden { opacity: 0; pointer-events: none; }
@@ -653,6 +654,7 @@
     align-items: center;
     justify-content: center;
     gap: 18px;
+    text-align: center;
     transition: background 1.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
   }
   #loader.bleed { background: var(--orange); }
@@ -670,6 +672,8 @@
     color: var(--white);
     display: flex;
     align-items: baseline;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   #loader-name .l-letter {
     opacity: 0;
@@ -1121,7 +1125,7 @@ document.getElementById('samplesInner').innerHTML = `
     <div class="sample-category-label">Advertising & Promotional Work</div>
     <div class="yt-scroll-wrap">
     <div class="yt-scroll-wrap">
-      <button class="yt-arrow prev hidden" id="ytPrev" onclick="document.getElementById('ytGrid').scrollBy({left:-300,behavior:'smooth'})">&#8592;</button>
+      <button class="yt-arrow prev hidden" id="ytPrev" onclick="document.getElementById('ytGrid').scrollBy({left:-300,behavior:'smooth'});this.blur()">&#8592;</button>
       <div class="yt-grid" id="ytGrid">
       ${[
         { id: 'GNkiutDfEIE', title: 'Bare The Film' },
@@ -1142,7 +1146,7 @@ document.getElementById('samplesInner').innerHTML = `
         </a>
       `).join('')}
     </div>
-      <button class="yt-arrow next" id="ytNext" onclick="document.getElementById('ytGrid').scrollBy({left:300,behavior:'smooth'})">&#8594;</button>
+      <button class="yt-arrow next" id="ytNext" onclick="document.getElementById('ytGrid').scrollBy({left:300,behavior:'smooth'});this.blur()">&#8594;</button>
     </div>
     <a class="yt-playlist-link" href="https://youtube.com/playlist?list=PLelIVuouvGQG-UqRc4fAzKpTW9f-Vj7Y3" target="_blank">View Full Playlist ↗</a>
   </div>
@@ -1480,6 +1484,8 @@ if (ytGrid) {
     }
   });
   wrap.addEventListener('mouseleave', () => cancelAnimationFrame(scrollRAF));
+  wrap.addEventListener('touchstart', () => cancelAnimationFrame(scrollRAF), { passive: true });
+  wrap.addEventListener('touchmove', () => cancelAnimationFrame(scrollRAF), { passive: true });
 }
 
 document.querySelectorAll('.bgm-audio').forEach(audio => {
