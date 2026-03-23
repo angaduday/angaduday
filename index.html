@@ -9,9 +9,45 @@
 <meta property="og:description" content="Music for film, series, and brands. Credits on Netflix, Amazon Prime, and more.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://angaduday.com">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://angaduday.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Angad Uday — Music Producer, Composer & Vocalist">
 <meta name="twitter:description" content="Music for film, series, and brands. Credits on Netflix, Amazon Prime, and more.">
+<meta name="twitter:image" content="https://angaduday.com/og-image.jpg">
+<link rel="canonical" href="https://angaduday.com">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Angad Uday",
+  "url": "https://angaduday.com",
+  "image": "https://angaduday.com/angad-photo.jpg",
+  "jobTitle": "Music Producer, Composer & Vocalist",
+  "description": "Mumbai-based music producer, composer, and vocalist with credits on Netflix, Amazon Prime, Zee5, and Voot.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Mumbai",
+    "addressCountry": "IN"
+  },
+  "sameAs": [
+    "https://www.imdb.com/name/nm10140983/",
+    "https://instagram.com/angaduday"
+  ],
+  "knowsAbout": ["Music Production", "Film Scoring", "Composition", "Mixing", "Vocals"],
+  "worksFor": [
+    { "@type": "Organization", "name": "Netflix" },
+    { "@type": "Organization", "name": "Amazon Prime Video" },
+    { "@type": "Organization", "name": "Zee5" }
+  ],
+  "workExample": [
+    { "@type": "Movie", "name": "Curry & Cyanide: The Jolly Joseph Case", "dateCreated": "2023" },
+    { "@type": "TVSeries", "name": "Paatal Lok Season 2", "dateCreated": "2025" },
+    { "@type": "TVSeries", "name": "Heeramandi", "dateCreated": "2024" },
+    { "@type": "TVSeries", "name": "The Broken News", "dateCreated": "2022" }
+  ]
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FF4D00'/><text y='72' x='50' text-anchor='middle' font-size='58' font-family='sans-serif' font-weight='bold' fill='white'>AU</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -104,7 +140,7 @@
     margin-left: 40px;
     margin-bottom: 16px;
     opacity: 0;
-    animation: slideUp 0.7s ease 0.7s forwards;
+
   }
   .hero-photo img {
     width: 100%;
@@ -126,7 +162,7 @@
     color: rgba(0,0,0,0.65);
     margin-bottom: 10px;
     opacity: 0;
-    animation: slideUp 0.7s ease 0.3s forwards;
+
     will-change: transform;
   }
 
@@ -138,7 +174,6 @@
     color: var(--white);
     margin-bottom: 12px;
     opacity: 0;
-    animation: slideUp 0.7s ease 0.45s forwards;
     will-change: transform;
   }
 
@@ -158,6 +193,10 @@
 
   /* SECTIONS */
   section { padding: 28px 48px; }
+  section:not(#hero), .marquee-strip, footer {
+    opacity: 0;
+    transform: translateY(48px);
+  }
 
   .section-header {
     display: flex;
@@ -553,6 +592,56 @@
     to   { transform: translateX(-50%); }
   }
 
+  /* LOADER */
+  #loader {
+    position: fixed;
+    inset: 0;
+    background: var(--black);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    transition: background 1.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
+  }
+  #loader.bleed { background: var(--orange); }
+  #loader.hidden { opacity: 0; pointer-events: none; }
+  .loader-line {
+    width: 0;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    transition: width 1.2s cubic-bezier(0.77,0,0.18,1);
+  }
+  #loader-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 10vw, 96px);
+    letter-spacing: 0.3em;
+    color: var(--white);
+    display: flex;
+    align-items: baseline;
+  }
+  #loader-name .l-letter {
+    opacity: 0;
+    filter: blur(6px);
+    transition: opacity 0.7s ease, filter 0.7s ease;
+    display: inline-block;
+  }
+  #loader-name .l-letter.in { opacity: 1; filter: blur(0); }
+  #loader-name .l-space { width: 0.35em; display: inline-block; }
+  #loader-sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    opacity: 0;
+    transition: opacity 0.8s ease, color 1.4s ease;
+  }
+  #loader-sub.in { opacity: 1; }
+  #loader-sub.bleed { color: rgba(0,0,0,0.35); }
+
   /* ACTIVE NAV */
   .nav-links a.active { color: var(--orange); }
 
@@ -605,6 +694,17 @@
   .contact-form button:hover { background: #333; }
   .form-success { font-size: 13px; color: rgba(0,0,0,0.6); display: none; margin-top: 4px; }
 
+
+  @keyframes lockInLeft {
+    0%   { opacity: 0; transform: translateX(-80px) rotate(-2deg); }
+    65%  { opacity: 1; transform: translateX(4px) rotate(0.2deg); }
+    100% { opacity: 1; transform: translateX(0) rotate(0deg); }
+  }
+  @keyframes lockInRight {
+    0%   { opacity: 0; transform: translateX(80px) rotate(2deg); }
+    65%  { opacity: 1; transform: translateX(-4px) rotate(-0.2deg); }
+    100% { opacity: 1; transform: translateX(0) rotate(0deg); }
+  }
 
   /* ANIMATIONS */
   @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -815,7 +915,14 @@ const SITE_DATA = {
 
 <!-- HTML — no need to edit below -->
 
+<div id="loader">
+  <div class="loader-line" id="ll"></div>
+  <div id="loader-name"></div>
+  <div id="loader-sub">Music Producer · Composer · Vocalist</div>
+  <div class="loader-line" id="ll2"></div>
+</div>
 <div id="scroll-line"></div>
+<div id="site-wrap">
 <nav>
   <a class="nav-logo" href="#">Angad Uday</a>
   <ul class="nav-links">
@@ -834,7 +941,7 @@ const SITE_DATA = {
       <p class="hero-bio" id="heroBio"></p>
     </div>
     <div class="hero-photo">
-      <img src="/angad-photo.jpg" alt="Angad Uday">
+      <img src="/angad-photo.jpg" alt="Angad Uday" loading="lazy">
     </div>
   </div>
 </section>
@@ -888,6 +995,7 @@ const SITE_DATA = {
 <footer>
   <span class="footer-copy" id="footerCopy"></span>
 </footer>
+</div>
 
 <script>
 const d = SITE_DATA;
@@ -1064,6 +1172,99 @@ window.addEventListener('scroll', () => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+// Color bleed loader with morph
+(function() {
+  const loader = document.getElementById('loader');
+  const dn     = document.getElementById('loader-name');
+  const ds     = document.getElementById('loader-sub');
+  const ll     = document.getElementById('ll');
+  const ll2    = document.getElementById('ll2');
+  const text   = 'ANGAD UDAY';
+  const letters = [];
+  text.split('').forEach(ch => {
+    if (ch === ' ') {
+      const sp = document.createElement('span');
+      sp.className = 'l-space';
+      dn.appendChild(sp);
+    } else {
+      const el = document.createElement('span');
+      el.className = 'l-letter';
+      el.textContent = ch;
+      dn.appendChild(el);
+      letters.push(el);
+    }
+  });
+  const lineW = Math.min(window.innerWidth * 0.4, 400) + 'px';
+
+  function doMorph() {
+    const heroName  = document.getElementById('heroName');
+    const heroTag   = document.getElementById('heroTag');
+    const heroBio   = document.getElementById('heroBio');
+    const heroPhoto = document.querySelector('.hero-photo');
+    if (!heroName) { loader.classList.add('hidden'); return; }
+
+    // Fade out loader elements
+    ds.style.transition  = 'opacity 0.3s ease';
+    ds.style.opacity     = '0';
+    ll.style.transition  = 'opacity 0.3s ease'; ll.style.opacity  = '0';
+    ll2.style.transition = 'opacity 0.3s ease'; ll2.style.opacity = '0';
+
+    // Crossfade loader name into hero name
+    setTimeout(() => {
+      dn.style.transition = 'opacity 0.5s ease';
+      dn.style.opacity = '0';
+      heroName.style.transition = 'opacity 0.5s ease';
+      heroName.style.opacity = '1';
+    }, 200);
+
+    // Fade loader overlay
+    setTimeout(() => {
+      loader.classList.add('hidden');
+
+      // Hero supporting elements stagger in
+      [[heroTag, 0], [heroBio, 150], [heroPhoto, 250]].forEach(([el, delay]) => {
+        if (!el) return;
+        setTimeout(() => {
+          el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, delay);
+      });
+
+      // Lego snap — alternating left/right with rotation
+      const blocks = [
+        ...document.querySelectorAll('.marquee-strip'),
+        ...document.querySelectorAll('section:not(#hero)'),
+        document.querySelector('footer')
+      ].filter(Boolean);
+
+      blocks.forEach((el, i) => {
+        const dir = i % 2 === 0 ? 'lockInLeft' : 'lockInRight';
+        setTimeout(() => {
+          el.style.animation = `${dir} 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards`;
+        }, 150 + i * 280);
+      });
+    }, 700);
+  }
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    ll.style.transition  = 'width 1.2s cubic-bezier(0.77,0,0.18,1)';
+    ll2.style.transition = 'width 1.2s cubic-bezier(0.77,0,0.18,1) 0.15s';
+    ll.style.width  = lineW;
+    ll2.style.width = lineW;
+    letters.forEach((el, i) => {
+      setTimeout(() => el.classList.add('in'), 300 + i * 70);
+    });
+    const nameEnd = 300 + letters.length * 70 + 300;
+    setTimeout(() => ds.classList.add('in'), nameEnd);
+    setTimeout(() => {
+      loader.classList.add('bleed');
+      ds.classList.add('bleed');
+    }, nameEnd + 600);
+    setTimeout(() => doMorph(), nameEnd + 1800);
+  }));
+})();
+
 // Scroll progress line
 const scrollLine = document.getElementById('scroll-line');
 window.addEventListener('scroll', () => {
@@ -1112,10 +1313,10 @@ function scramble(el) {
 }
 const scrambleObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) { scramble(e.target); scrambleObserver.unobserve(e.target); }
+    if (e.isIntersecting) scramble(e.target);
   });
 }, { threshold: 0.5 });
-document.querySelectorAll('.section-title').forEach(el => scrambleObserver.observe(el));
+document.querySelectorAll('.section-title, .sample-category-label').forEach(el => scrambleObserver.observe(el));
 
 
 // Staggered reveal — add delay classes to siblings
@@ -1136,7 +1337,23 @@ window.addEventListener('scroll', () => {
   heroInner.style.transform = `translateY(${scrollY * 0.3}px)`;
 }, { passive: true });
 
-// Single audio playback
+// Magnetic buttons
+document.querySelectorAll('.contact-btn').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r  = btn.getBoundingClientRect();
+    const cx = r.left + r.width  / 2;
+    const cy = r.top  + r.height / 2;
+    const dx = (e.clientX - cx) * 0.3;
+    const dy = (e.clientY - cy) * 0.3;
+    btn.style.transform = `translate(${dx}px, ${dy}px)`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = '';
+    btn.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    setTimeout(() => btn.style.transition = '', 400);
+  });
+});
+
 document.querySelectorAll('.bgm-audio').forEach(audio => {
   audio.addEventListener('play', () => {
     document.querySelectorAll('.bgm-audio').forEach(other => {
