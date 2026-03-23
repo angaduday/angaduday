@@ -612,6 +612,28 @@
   @media (max-width: 768px) {
     .highlights-grid { grid-template-columns: 1fr; }
   }
+  .brand-strip {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .brand-strip-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+  .brand-list {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(20px, 2.8vw, 32px);
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+  }
+
   /* MARQUEE */
   .marquee-strip {
     background: var(--black);
@@ -1110,12 +1132,12 @@ document.getElementById('creditsInner').innerHTML = `
     <div class="highlights-grid">${d.films.map(creditCard).join('')}</div>
   </div>
   <div class="credits-group reveal">
-    <div class="credits-group-label">Promotional & Advertising</div>
-    <div class="ad-grid">${d.advertising.map(a => `<span class="ad-tag">${a}</span>`).join('')}</div>
-  </div>
-  <div class="credits-group reveal">
     <div class="credits-group-label">Live Events</div>
     <div class="highlights-grid">${d.events.map(creditCard).join('')}</div>
+  </div>
+  <div class="brand-strip reveal">
+    <div class="brand-strip-label">Brands</div>
+    <div class="brand-list">${d.advertising.join(' · ')}</div>
   </div>
 `;
 // Work samples
