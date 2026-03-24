@@ -2,6 +2,7 @@
 <html lang="en">
 <!-- ===== SECTION: HEAD START ===== -->
 <head>
+<style>html,body{background:#111;margin:0;padding:0;}body{opacity:0;}body.ready{opacity:1;transition:opacity 0.01s;}</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Angad Uday — Music Producer, Composer & Vocalist</title>
@@ -183,8 +184,7 @@
   /* SECTIONS */
   section { padding: 18px 48px; }
   section:not(#hero), .marquee-strip, footer {
-    opacity: 0;
-    transform: translateY(48px);
+    will-change: transform, opacity;
   }
   .section-header {
     display: flex;
@@ -660,13 +660,13 @@
   #wipe {
     position: fixed;
     inset: 0;
-    background: #fff;
+    background: #111;
     opacity: 0;
-    z-index: 9998;
+    z-index: 10000;
     pointer-events: none;
-    transition: opacity 0.15s ease;
+    transition: opacity 0.08s ease;
   }
-  #wipe.flash { opacity: 0.7; }
+  #wipe.flash { opacity: 1; }
   #wipe.fade  { opacity: 0; transition: opacity 0.6s ease; }
   /* LOADER */
   #loader {
@@ -923,6 +923,7 @@
     footer { padding: 20px 24px; }
   }
 </style>
+<script>requestAnimationFrame(function(){requestAnimationFrame(function(){document.body.classList.add("ready");});});</script>
 <!-- ===== SECTION: HEAD END ===== -->
 </head>
 <body>
@@ -1308,8 +1309,9 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     }
   });
   let morphDone = false;
+  let morphReady = false;
   function triggerMorph() {
-    if (morphDone) return;
+    if (morphDone || !morphReady) return;
     morphDone = true;
     doMorph();
   }
@@ -1334,44 +1336,58 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     // Flash dissolve transition
     setTimeout(() => {
       const wipe = document.getElementById('wipe');
-      wipe.classList.add('flash');
-      setTimeout(() => {
-        loader.classList.add('hidden');
-        heroName.style.transition = 'opacity 0.01s';
-        heroName.style.opacity = '1';
-        wipe.classList.remove('flash');
-        wipe.classList.add('fade');
-        [heroTag, heroBio, heroPhoto].forEach((el, i) => {
-          if (!el) return;
-          setTimeout(() => {
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      const blocks = [
+        ...document.querySelectorAll('.marquee-strip'),
+        ...document.querySelectorAll('section:not(#hero)'),
+        document.querySelector('footer')
+      ].filter(Boolean);
+
+      // Hide blocks FIRST before anything else
+      blocks.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(48px)';
+      });
+
+      requestAnimationFrame(() => {
+        wipe.classList.add('flash');
+        wipe.addEventListener('transitionend', function onWipeFull() {
+          wipe.removeEventListener('transitionend', onWipeFull);
+          wipe.classList.remove('flash');
+          wipe.classList.add('fade');
+          loader.classList.add('hidden');
+          heroName.style.opacity = '1';
+          [heroTag, heroBio, heroPhoto].forEach((el, i) => {
+            if (!el) return;
+            setTimeout(() => {
+              el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, i * 150);
+          });
+          blocks.forEach((el, i) => {
+            el.style.transition = `opacity 0.5s ease ${i * 0.1}s, transform 0.5s ease ${i * 0.1}s`;
             el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-          }, i * 150);
+            el.style.transform = 'none';
+          });
         });
-        const blocks = [
-          ...document.querySelectorAll('.marquee-strip'),
-          ...document.querySelectorAll('section:not(#hero)'),
-          document.querySelector('footer')
-        ].filter(Boolean);
-        blocks.forEach((el, i) => {
-          setTimeout(() => {
-            el.style.animation = `${i % 2 === 0 ? 'lockInLeft' : 'lockInRight'} 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards`;
-          }, 150 + i * 280);
-        });
-      }, 150);
+      });
     }, 200);
   }
   requestAnimationFrame(() => requestAnimationFrame(() => {
     letters.forEach((el, i) => {
-      setTimeout(() => el.classList.add('in'), 300 + i * 70);
+      setTimeout(() => {
+        el.classList.add('in');
+      }, 300 + i * 70);
     });
     const nameEnd = 300 + letters.length * 70 + 300;
     const tagline = 'Music Producer · Composer · Vocalist'.split(' ');
     ds.innerHTML = tagline.map(w => `<span style="opacity:0;transition:opacity 0.5s ease;display:inline-block;margin-right:0.3em">${w}</span>`).join('');
     const tagSpans = ds.querySelectorAll('span');
     tagSpans.forEach((s, i) => {
-      setTimeout(() => { s.style.opacity = '1'; }, nameEnd + i * 120);
+      setTimeout(() => {
+        if (i === 0) morphReady = true;
+        s.style.opacity = '1';
+      }, nameEnd + i * 120);
     });
     const tagEnd = nameEnd + tagSpans.length * 120;
     setTimeout(() => {
