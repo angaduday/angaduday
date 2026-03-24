@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- ===== SECTION: HEAD START ===== -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -200,11 +201,11 @@
   #credits { background: var(--black); }
   #credits .section-title { color: var(--white); }
   #credits .section-header { border-bottom-color: var(--orange); }
-  #credits .credits-group-label { color: rgba(255,255,255,0.4); border-bottom-color: rgba(255,255,255,0.1); }
+  #credits .credits-group-label { color: var(--orange); border-bottom-color: rgba(255,255,255,0.15); }
   .credits-group { margin-bottom: 14px; }
   .credits-group-label {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(18px, 2.5vw, 26px);
+    font-size: clamp(20px, 2.8vw, 30px);
     letter-spacing: 0.06em;
     color: var(--gray);
     margin-bottom: 16px;
@@ -920,8 +921,10 @@
     footer { padding: 20px 24px; }
   }
 </style>
+<!-- ===== SECTION: HEAD END ===== -->
 </head>
 <body>
+<!-- ===== SECTION: SITE DATA START ===== -->
 <!-- =====================================================
      ✦ YOUR CONTENT — Edit freely inside SITE_DATA ✦
      Save file, re-upload to Netlify to update.
@@ -1011,7 +1014,9 @@ const SITE_DATA = {
   }
 };
 </script>
-<!-- HTML — no need to edit below -->
+<!-- ===== SECTION: SITE DATA END ===== -->
+
+<!-- ===== SECTION: LOADER START ===== -->
 <div id="loader">
   <div id="loader-name"></div>
   <div id="loader-sub"></div>
@@ -1020,9 +1025,11 @@ const SITE_DATA = {
     Play
   </div>
 </div>
+<!-- ===== SECTION: LOADER END ===== -->
 <div id="wipe"></div>
 <div id="scroll-line"></div>
 <div id="site-wrap">
+<!-- ===== SECTION: NAV START ===== -->
 <nav>
   <a class="nav-logo" href="#">Angad Uday</a>
   <ul class="nav-links">
@@ -1032,6 +1039,8 @@ const SITE_DATA = {
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+<!-- ===== SECTION: NAV END ===== -->
+<!-- ===== SECTION: HERO START ===== -->
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-text">
@@ -1044,6 +1053,7 @@ const SITE_DATA = {
     </div>
   </div>
 </section>
+<!-- ===== SECTION: HERO END ===== -->
 <div class="marquee-strip" aria-hidden="true">
   <span class="marquee-inner" id="marqueeInner"></span>
 </div>
@@ -1054,24 +1064,31 @@ const SITE_DATA = {
     <p>Credits include: Curry & Cyanide (Netflix), Gold (Amazon Prime), Paatal Lok Season 2 (Amazon Prime), Heeramandi (Netflix), CA Topper Tribhuvan Mishra (Netflix), Dancing On The Grave (Amazon Prime), The Broken News Season 1 & 2 (Zee5), Black Widows (Zee5), The Raikar Case (Voot).</p>
   </div>
 </noscript>
+<!-- ===== SECTION: CREDITS START ===== -->
 <section id="credits">
   <div class="section-header reveal">
     <h2 class="section-title">Credits</h2>
   </div>
   <div id="creditsInner"></div>
 </section>
+<!-- ===== SECTION: CREDITS END ===== -->
+<!-- ===== SECTION: WORK SAMPLES START ===== -->
 <section id="samples">
   <div class="section-header reveal">
     <h2 class="section-title">Work Samples</h2>
   </div>
   <div id="samplesInner"></div>
 </section>
+<!-- ===== SECTION: WORK SAMPLES END ===== -->
+<!-- ===== SECTION: SERVICES START ===== -->
 <section id="services">
   <div class="section-header reveal">
     <h2 class="section-title">Services</h2>
   </div>
   <div class="services-grid" id="servicesGrid"></div>
 </section>
+<!-- ===== SECTION: SERVICES END ===== -->
+<!-- ===== SECTION: CONTACT START ===== -->
 <section id="contact">
   <h2 class="contact-heading reveal">Let's Make<span>Something.</span></h2>
   <p class="contact-bio reveal">Music has always been less of a career choice and more of a biological requirement. I'm a Mumbai-based composer and producer working across film, series, advertising, and live production, driven by a detail-oriented approach and a deep belief that the wrong music can ruin anything. So let's get it right.</p>
@@ -1084,10 +1101,14 @@ const SITE_DATA = {
   <p class="form-success" id="formSuccess">Got it. I'll be in touch.</p>
   <div class="contact-buttons reveal" id="contactBtns"></div>
 </section>
+<!-- ===== SECTION: CONTACT END ===== -->
+<!-- ===== SECTION: FOOTER START ===== -->
 <footer>
   <span class="footer-copy" id="footerCopy"></span>
 </footer>
+<!-- ===== SECTION: FOOTER END ===== -->
 </div>
+<!-- ===== SECTION: JS START ===== -->
 <script>
 const d = SITE_DATA;
 document.getElementById('heroTag').textContent    = d.tagline;
@@ -1518,5 +1539,6 @@ document.querySelectorAll('.bgm-audio').forEach(audio => {
   });
 });
 </script>
+<!-- ===== SECTION: JS END ===== -->
 </body>
 </html>
