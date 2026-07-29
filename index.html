@@ -259,6 +259,118 @@
     margin-left: 16px;
   }
 
+  /* YT CAROUSEL */
+  .yt-scroll-wrap {
+    position: relative;
+    margin-top: 16px;
+  }
+  .yt-scroll-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 8px;
+    width: 60px;
+    background: linear-gradient(to right, transparent, var(--off-white));
+    pointer-events: none;
+  }
+  .yt-grid {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 16px 0 16px;
+    scrollbar-width: none;
+  }
+  .yt-grid::-webkit-scrollbar { display: none; }
+  .yt-thumb {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background: #000;
+    flex: 0 0 280px;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+    transform-origin: center;
+  }
+  .yt-thumb:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    z-index: 2;
+  }
+  .yt-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .yt-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .yt-play svg { width: 40px; height: 40px; color: #fff; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6)); }
+  .yt-thumb:hover .yt-play { opacity: 1; }
+  .yt-title {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 20px 10px 8px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: #fff;
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    letter-spacing: 0.04em;
+  }
+  .yt-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px; height: 44px;
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: opacity 0.3s ease, background 0.2s;
+    font-size: 18px;
+  }
+  .yt-arrow:focus { outline: none; }
+  .yt-arrow::-moz-focus-inner { border: 0; }
+  .yt-arrow.prev { left: -22px; }
+  .yt-arrow.next { right: -22px; }
+  .yt-arrow.hidden { opacity: 0; pointer-events: none; }
+  .yt-playlist-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .yt-playlist-link:hover { color: var(--orange); }
+
+  /* IG EMBEDS */
+  .ig-grid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 16px;
+  }
+  .ig-grid .instagram-media {
+    margin: 0 !important;
+    min-width: 280px !important;
+    max-width: 380px !important;
+    width: 100% !important;
+    flex: 1 1 280px;
+  }
 
   /* BGM PLAYER */
   .bgm-track {
@@ -276,6 +388,7 @@
   .bgm-title.small { font-size: clamp(15px, 1.8vw, 20px); }
   .bgm-audio {
     width: 100%;
+    max-width: 480px;
     height: 32px;
     display: block;
     margin-top: 4px;
@@ -689,11 +802,11 @@ const SITE_DATA = {
       }
     ],
     upcoming: {
-      title: "Sisters of the Wildflower",
+      title: "Spirit of the Wildflower",
       role: "Composer",
       type: "Documentary Feature",
       status: "Unreleased",
-      trailerUrl: "https://www.instagram.com/reel/DOp7-n4jIBc/"
+      trailerUrl: "https://www.instagram.com/reel/DX3k_fcMIaa/"
     },
     acappella:   { label: "Acappella Mixing Work",           url: "https://linktr.ee/raagtonicproductions" },
     production: [
@@ -845,10 +958,40 @@ const ws = d.workSamples;
 document.getElementById('samplesInner').innerHTML = `
 
   <div class="sample-category reveal">
-    <a class="sample-link" href="${ws.playlist.url}" target="_blank">
-      <span class="sl-name">${ws.playlist.label}</span>
-      <span class="sl-arrow">↗</span>
-    </a>
+    <div class="sample-category-label">${ws.playlist.label}</div>
+    <div class="yt-scroll-wrap">
+      <button class="yt-arrow prev hidden" id="ytPrev" onclick="document.getElementById('ytGrid').scrollBy({left:-300,behavior:'smooth'});this.blur()">&#8592;</button>
+      <div class="yt-grid" id="ytGrid">
+      ${[
+        { id: 'GNkiutDfEIE', title: 'Bare The Film' },
+        { id: 'SUG-stZNKCU', title: 'Bare Art' },
+        { id: 'jiMv0HfnwnM', title: 'Bare Frequency' },
+        { id: '0xJRuorAkAc', title: 'Bare Cocktails' },
+        { id: 'lFg9bbWBHsU', title: 'Bare Food' },
+        { id: 'BWHe04fEvz8', title: 'Titan Independence Day Ad Film' },
+        { id: '7E0cLJwpRHI', title: 'Utsa Westside Ad' },
+        { id: '4tQN6kD64lU', title: 'Mahindra Lifespaces' },
+        { id: 'nAIqRseD1J8', title: 'Reebok Sole Fury' },
+        { id: '5GfJ9KWYCfI', title: 'Policybazaar' },
+      ].map(v => `
+        <a class="yt-thumb ${v.short ? 'yt-short' : ''}" href="https://www.youtube.com/${v.short ? 'shorts/' : 'watch?v='}${v.id}" target="_blank">
+          <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" alt="${v.title}" loading="lazy">
+          <div class="yt-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="yt-title">${v.title}</div>
+        </a>
+      `).join('')}
+      </div>
+      <button class="yt-arrow next" id="ytNext" onclick="document.getElementById('ytGrid').scrollBy({left:300,behavior:'smooth'});this.blur()">&#8594;</button>
+    </div>
+    <a class="yt-playlist-link" href="${ws.playlist.url}" target="_blank">View Full Playlist ↗</a>
+  </div>
+
+  <div class="sample-category reveal">
+    <div class="sample-category-label">Instagram Highlights</div>
+    <div class="ig-grid" id="igGrid">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DZxToZ_NebO/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DTQDRFEiX_G/" data-instgrm-version="14"></blockquote>
+    </div>
   </div>
 
   <div class="sample-category reveal">
@@ -991,6 +1134,56 @@ window.addEventListener('scroll', () => {
   if (first) first.style.transform = `translateY(${scrollY * 0.06}px)`;
   if (second) second.style.transform = `translateY(${scrollY * 0.12}px)`;
 }, { passive: true });
+
+// YouTube grid arrows
+const ytGrid = document.getElementById('ytGrid');
+const ytPrev = document.getElementById('ytPrev');
+const ytNext = document.getElementById('ytNext');
+if (ytGrid) {
+  function updateYtArrows() {
+    ytPrev.classList.toggle('hidden', ytGrid.scrollLeft <= 0);
+    ytNext.classList.toggle('hidden', ytGrid.scrollLeft + ytGrid.clientWidth >= ytGrid.scrollWidth - 4);
+  }
+  ytGrid.addEventListener('scroll', updateYtArrows, { passive: true });
+  updateYtArrows();
+
+  // Hover-zone auto-scroll
+  let scrollRAF = null;
+  const wrap = ytGrid.closest('.yt-scroll-wrap');
+  wrap.addEventListener('mousemove', e => {
+    const rect = wrap.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const zone = rect.width * 0.12;
+    cancelAnimationFrame(scrollRAF);
+    if (x < zone) {
+      const speed = (1 - x / zone) * 6;
+      function scrollLeft() { ytGrid.scrollLeft -= speed; scrollRAF = requestAnimationFrame(scrollLeft); }
+      scrollLeft();
+    } else if (x > rect.width - zone) {
+      const speed = ((x - (rect.width - zone)) / zone) * 6;
+      function scrollRight() { ytGrid.scrollLeft += speed; scrollRAF = requestAnimationFrame(scrollRight); }
+      scrollRight();
+    }
+  });
+  wrap.addEventListener('mouseleave', () => cancelAnimationFrame(scrollRAF));
+  wrap.addEventListener('touchstart', () => cancelAnimationFrame(scrollRAF), { passive: true });
+  wrap.addEventListener('touchmove', () => cancelAnimationFrame(scrollRAF), { passive: true });
+}
+
+// Lazy-load Instagram embeds when scrolled near
+const igGrid = document.getElementById('igGrid');
+if (igGrid) {
+  const igObserver = new IntersectionObserver((entries, obs) => {
+    if (entries.some(en => en.isIntersecting)) {
+      const s = document.createElement('script');
+      s.src = 'https://www.instagram.com/embed.js';
+      s.async = true;
+      document.body.appendChild(s);
+      obs.disconnect();
+    }
+  }, { rootMargin: '400px' });
+  igObserver.observe(igGrid);
+}
 
 // Single audio playback
 document.querySelectorAll('.bgm-audio').forEach(audio => {
