@@ -680,11 +680,11 @@ const SITE_DATA = {
       }
     ],
     upcoming: {
-      title: "Spirit of the Wildflower",
+      title: "Sisters of the Wildflower",
       role: "Composer",
       type: "Documentary Feature",
       status: "Unreleased",
-      trailerUrl: "https://www.instagram.com/p/DX3k_fcMIaa/"
+      trailerUrl: "https://www.instagram.com/reel/DOp7-n4jIBc/"
     },
     acappella:   { label: "Acappella Mixing Work",           url: "https://linktr.ee/raagtonicproductions" },
     production: [
@@ -950,9 +950,21 @@ if (form) {
   form.addEventListener('submit', async e => {
     e.preventDefault();
     const data = new FormData(form);
-    await fetch('/', { method: 'POST', body: data });
-    form.style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        alert('Something went wrong sending your message. Please email me directly instead.');
+      }
+    } catch (err) {
+      alert('Something went wrong sending your message. Please email me directly instead.');
+    }
   });
 }
 
