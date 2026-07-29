@@ -211,10 +211,20 @@
   /* WORK SAMPLES */
   #samples { background: var(--off-white); }
 
-  .sample-category { margin-bottom: 0; padding: 16px 0; border-bottom: 1px solid var(--border); }
-  .sample-category:last-child { border-bottom: none; }
-  .sample-category:nth-child(even) { background: var(--white); margin: 0 -48px; padding: 16px 48px; }
-  .sample-category:nth-child(odd) { background: var(--off-white); margin: 0 -48px; padding: 16px 48px; }
+  #samplesInner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .sample-category {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+  }
+  .sample-category.span-2 { grid-column: 1 / -1; }
+  @media (max-width: 768px) {
+    #samplesInner { grid-template-columns: 1fr; }
+  }
 
   .sample-category-label {
     font-family: 'Bebas Neue', sans-serif;
@@ -269,7 +279,7 @@
     position: absolute;
     top: 0; right: 0; bottom: 8px;
     width: 60px;
-    background: linear-gradient(to right, transparent, var(--off-white));
+    background: linear-gradient(to right, transparent, var(--white));
     pointer-events: none;
   }
   .yt-grid {
@@ -369,13 +379,14 @@
     background: var(--white);
     border: 1px solid var(--border);
     border-top: 3px solid var(--orange);
-    flex: 0 1 220px;
+    flex: 1 1 200px;
+    max-width: 260px;
     overflow: hidden;
   }
   .ig-grid .instagram-media {
     margin: 0 !important;
     min-width: 200px !important;
-    max-width: 220px !important;
+    max-width: 260px !important;
     width: 100% !important;
   }
 
@@ -964,7 +975,7 @@ document.getElementById('creditsInner').innerHTML = `
 const ws = d.workSamples;
 document.getElementById('samplesInner').innerHTML = `
 
-  <div class="sample-category reveal">
+  <div class="sample-category span-2 reveal">
     <div class="sample-category-label">${ws.playlist.label}</div>
     <div class="yt-scroll-wrap">
       <button class="yt-arrow prev hidden" id="ytPrev" onclick="document.getElementById('ytGrid').scrollBy({left:-300,behavior:'smooth'});this.blur()">&#8592;</button>
@@ -1056,7 +1067,7 @@ document.getElementById('samplesInner').innerHTML = `
     </div>
   </div>
 
-  <div class="sample-category reveal">
+  <div class="sample-category span-2 reveal">
     <div class="sample-category-label">Original Work</div>
     <div class="on-fire-sub" style="margin-bottom:12px;">Singer-songwriter. More coming.</div>
     <div class="on-fire-heading">On Fire</div>
