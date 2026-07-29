@@ -212,19 +212,27 @@
   #samples { background: var(--off-white); }
 
   #samplesInner {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-    align-items: start;
+    column-count: 2;
+    column-gap: 14px;
   }
   .sample-category {
     background: var(--white);
     border: 1px solid var(--border);
     padding: 18px 20px;
+    break-inside: avoid;
+    margin-bottom: 14px;
+    display: block;
   }
-  .sample-category.span-2 { grid-column: 1 / -1; }
+  .sample-category.span-2 { column-span: all; }
   @media (max-width: 768px) {
-    #samplesInner { grid-template-columns: 1fr; }
+    #samplesInner { column-count: 1; }
+  }
+
+  /* Masonry variant of highlights-grid, used only in Credits */
+  .highlights-masonry { column-count: 2; column-gap: 2px; }
+  .highlights-masonry .highlight-card { break-inside: avoid; margin-bottom: 2px; }
+  @media (max-width: 768px) {
+    .highlights-masonry { column-count: 1; }
   }
 
   .sample-category-label {
@@ -950,17 +958,17 @@ function creditCard(c) {
 document.getElementById('creditsInner').innerHTML = `
   <div class="credits-group reveal">
     <div class="credits-group-label">Web Series</div>
-    <div class="highlights-grid">
+    <div class="highlights-masonry">
       ${d.webSeries.slice(0,4).map(creditCard).join('')}
     </div>
-    <div class="highlights-grid hc-hidden" id="moreWebSeries">
+    <div class="highlights-masonry hc-hidden" id="moreWebSeries">
       ${d.webSeries.slice(4).map(creditCard).join('')}
     </div>
     ${d.webSeries.length > 4 ? `<button class="show-more-btn" onclick="const el=document.getElementById('moreWebSeries');el.classList.toggle('hc-hidden');this.textContent=el.classList.contains('hc-hidden')?'Show More':'Show Less'">Show More</button>` : ''}
   </div>
   <div class="credits-group reveal">
     <div class="credits-group-label">Films</div>
-    <div class="highlights-grid">${d.films.map(creditCard).join('')}</div>
+    <div class="highlights-masonry">${d.films.map(creditCard).join('')}</div>
   </div>
   <div class="credits-group reveal">
     <div class="credits-group-label">Promotional & Advertising</div>
@@ -968,7 +976,7 @@ document.getElementById('creditsInner').innerHTML = `
   </div>
   <div class="credits-group reveal">
     <div class="credits-group-label">Live Events</div>
-    <div class="highlights-grid">${d.events.map(creditCard).join('')}</div>
+    <div class="highlights-masonry">${d.events.map(creditCard).join('')}</div>
   </div>
 `;
 
