@@ -38,6 +38,8 @@
     --off-white: #E9E6DE;
     --gray:      #555555;
     --border:    #DDD9CF;
+    --notch:     radial-gradient(circle 8px at 100% 100%, transparent 7.5px, black 8px);
+    --notch-sm:  radial-gradient(circle 4px at 100% 100%, transparent 3.5px, black 4px);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -187,6 +189,8 @@
     background: transparent;
     border: 1.5px solid rgba(255,255,255,0.3);
     color: rgba(255,255,255,0.7);
+    -webkit-mask-image: var(--notch-sm);
+    mask-image: var(--notch-sm);
     padding: 10px 20px;
     cursor: pointer;
     margin-top: 12px;
@@ -206,6 +210,8 @@
     color: var(--white);
     border: 1.5px solid rgba(255,255,255,0.3);
     padding: 6px 16px;
+    -webkit-mask-image: var(--notch-sm);
+    mask-image: var(--notch-sm);
   }
 
   /* WORK SAMPLES */
@@ -222,8 +228,8 @@
     break-inside: avoid;
     margin-bottom: 14px;
     display: block;
-    -webkit-mask-image: radial-gradient(circle 9px at 100% 100%, transparent 8.5px, black 9px);
-    mask-image: radial-gradient(circle 9px at 100% 100%, transparent 8.5px, black 9px);
+    -webkit-mask-image: var(--notch);
+    mask-image: var(--notch);
   }
   .sample-category.span-2 { column-span: all; }
   @media (max-width: 768px) {
@@ -311,6 +317,8 @@
     flex: 0 0 240px;
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
     transform-origin: center;
+    -webkit-mask-image: var(--notch);
+    mask-image: var(--notch);
   }
   .yt-thumb:hover {
     transform: scale(1.08);
@@ -392,7 +400,10 @@
     border-top: 3px solid var(--orange);
     flex: 1 1 200px;
     max-width: 260px;
+    padding: 6px;
     overflow: hidden;
+    -webkit-mask-image: var(--notch-sm);
+    mask-image: var(--notch-sm);
   }
   .ig-grid .instagram-media {
     margin: 0 !important;
@@ -468,6 +479,8 @@
     text-transform: uppercase;
     padding: 9px 18px;
     text-decoration: none;
+    -webkit-mask-image: var(--notch-sm);
+    mask-image: var(--notch-sm);
     border: 1.5px solid var(--black);
     color: var(--black);
     transition: all 0.2s;
@@ -503,6 +516,8 @@
     text-transform: uppercase;
     padding: 9px 18px;
     text-decoration: none;
+    -webkit-mask-image: var(--notch-sm);
+    mask-image: var(--notch-sm);
     border: 1.5px solid var(--black);
     color: var(--black);
     transition: all 0.2s;
@@ -529,8 +544,8 @@
     padding: 16px 20px;
     border-left: 3px solid transparent;
     transition: border-left-color 0.2s;
-    -webkit-mask-image: radial-gradient(circle 9px at 100% 100%, transparent 8.5px, black 9px);
-    mask-image: radial-gradient(circle 9px at 100% 100%, transparent 8.5px, black 9px);
+    -webkit-mask-image: var(--notch);
+    mask-image: var(--notch);
   }
   .svc-card:hover { border-left-color: var(--orange); }
 
@@ -593,6 +608,8 @@
     text-transform: uppercase;
     padding: 14px 24px;
     text-decoration: none;
+    -webkit-mask-image: var(--notch-sm);
+    mask-image: var(--notch-sm);
     transition: all 0.2s;
     display: flex;
     align-items: center;
@@ -633,8 +650,8 @@
     display: block;
     background: var(--black);
     padding: 16px 20px;
-    -webkit-mask-image: radial-gradient(circle 9px at 100% 100%, transparent 8.5px, black 9px);
-    mask-image: radial-gradient(circle 9px at 100% 100%, transparent 8.5px, black 9px);
+    -webkit-mask-image: var(--notch);
+    mask-image: var(--notch);
     border: 1.5px solid rgba(255,255,255,0.25);
     border-left: 3px solid var(--orange);
   }
