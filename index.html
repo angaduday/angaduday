@@ -359,17 +359,23 @@
   /* IG EMBEDS */
   .ig-grid {
     display: flex;
-    gap: 16px;
+    gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
     align-items: flex-start;
     margin-top: 16px;
+  }
+  .ig-card {
+    background: var(--black);
+    padding: 14px;
+    border-left: 3px solid var(--orange);
+    flex: 0 1 280px;
   }
   .ig-grid .instagram-media {
     margin: 0 !important;
     min-width: 240px !important;
-    max-width: 300px !important;
+    max-width: 280px !important;
     width: 100% !important;
-    flex: 1 1 240px;
   }
 
   /* BGM PLAYER */
@@ -989,8 +995,8 @@ document.getElementById('samplesInner').innerHTML = `
   <div class="sample-category reveal">
     <div class="sample-category-label">Instagram Highlights</div>
     <div class="ig-grid" id="igGrid">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DZxToZ_NebO/" data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DTQDRFEiX_G/" data-instgrm-version="14"></blockquote>
+      <div class="ig-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DZxToZ_NebO/" data-instgrm-version="14"></blockquote></div>
+      <div class="ig-card"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DTQDRFEiX_G/" data-instgrm-version="14"></blockquote></div>
     </div>
   </div>
 
