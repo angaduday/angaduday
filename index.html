@@ -38,8 +38,9 @@
     --off-white: #E9E6DE;
     --gray:      #555555;
     --border:    #DDD9CF;
-    --notch:     radial-gradient(circle 8px at 100% 100%, transparent 7.5px, black 8px);
-    --notch-sm:  radial-gradient(circle 4px at 100% 100%, transparent 3.5px, black 4px);
+    --notch:     polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 10px) 100%, 0 100%);
+    --notch-sm:  polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 5px) 100%, 0 100%);
+    --waveform:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 10'%3E%3Crect x='0' y='4' width='3' height='6' fill='black'/%3E%3Crect x='6' y='0' width='3' height='10' fill='black'/%3E%3Crect x='12' y='6' width='3' height='4' fill='black'/%3E%3Crect x='18' y='2' width='3' height='8' fill='black'/%3E%3C/svg%3E");
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -144,10 +145,21 @@
 
   .section-header {
     display: flex;
-    align-items: baseline;
+    flex-direction: column;
     margin-bottom: 12px;
-    border-bottom: 3px solid var(--black);
-    padding-bottom: 10px;
+  }
+  .section-header::after {
+    content: '';
+    display: block;
+    height: 8px;
+    margin-top: 8px;
+    background-color: var(--black);
+    -webkit-mask-image: var(--waveform);
+    mask-image: var(--waveform);
+    -webkit-mask-repeat: repeat-x;
+    mask-repeat: repeat-x;
+    -webkit-mask-size: 18px 8px;
+    mask-size: 18px 8px;
   }
 
   .section-title {
@@ -161,7 +173,7 @@
   /* CREDITS */
   #credits { background: var(--black); }
   #credits .section-title { color: var(--white); }
-  #credits .section-header { border-bottom-color: var(--orange); }
+  #credits .section-header::after { background-color: var(--orange); }
   #credits .credits-group-label { color: rgba(255,255,255,0.4); border-bottom-color: rgba(255,255,255,0.1); }
 
   .credits-group { margin-bottom: 14px; }
@@ -189,8 +201,8 @@
     background: transparent;
     border: 1.5px solid rgba(255,255,255,0.3);
     color: rgba(255,255,255,0.7);
-    -webkit-mask-image: var(--notch-sm);
-    mask-image: var(--notch-sm);
+    -webkit-clip-path: var(--notch-sm);
+    clip-path: var(--notch-sm);
     padding: 10px 20px;
     cursor: pointer;
     margin-top: 12px;
@@ -210,8 +222,8 @@
     color: var(--white);
     border: 1.5px solid rgba(255,255,255,0.3);
     padding: 6px 16px;
-    -webkit-mask-image: var(--notch-sm);
-    mask-image: var(--notch-sm);
+    -webkit-clip-path: var(--notch-sm);
+    clip-path: var(--notch-sm);
   }
 
   /* WORK SAMPLES */
@@ -228,8 +240,8 @@
     break-inside: avoid;
     margin-bottom: 14px;
     display: block;
-    -webkit-mask-image: var(--notch);
-    mask-image: var(--notch);
+    -webkit-clip-path: var(--notch);
+    clip-path: var(--notch);
   }
   .sample-category.span-2 { column-span: all; }
   @media (max-width: 768px) {
@@ -317,8 +329,8 @@
     flex: 0 0 240px;
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
     transform-origin: center;
-    -webkit-mask-image: var(--notch);
-    mask-image: var(--notch);
+    -webkit-clip-path: var(--notch);
+    clip-path: var(--notch);
   }
   .yt-thumb:hover {
     transform: scale(1.08);
@@ -402,8 +414,8 @@
     max-width: 260px;
     padding: 6px;
     overflow: hidden;
-    -webkit-mask-image: var(--notch-sm);
-    mask-image: var(--notch-sm);
+    -webkit-clip-path: var(--notch-sm);
+    clip-path: var(--notch-sm);
   }
   .ig-grid .instagram-media {
     margin: 0 !important;
@@ -479,8 +491,8 @@
     text-transform: uppercase;
     padding: 9px 18px;
     text-decoration: none;
-    -webkit-mask-image: var(--notch-sm);
-    mask-image: var(--notch-sm);
+    -webkit-clip-path: var(--notch-sm);
+    clip-path: var(--notch-sm);
     border: 1.5px solid var(--black);
     color: var(--black);
     transition: all 0.2s;
@@ -516,8 +528,8 @@
     text-transform: uppercase;
     padding: 9px 18px;
     text-decoration: none;
-    -webkit-mask-image: var(--notch-sm);
-    mask-image: var(--notch-sm);
+    -webkit-clip-path: var(--notch-sm);
+    clip-path: var(--notch-sm);
     border: 1.5px solid var(--black);
     color: var(--black);
     transition: all 0.2s;
@@ -531,7 +543,7 @@
   /* SERVICES */
   #services { background: var(--black); }
   #services .section-title { color: var(--white); }
-  #services .section-header { border-bottom-color: var(--orange); }
+  #services .section-header::after { background-color: var(--orange); }
 
   .services-grid {
     display: grid;
@@ -544,8 +556,8 @@
     padding: 16px 20px;
     border-left: 3px solid transparent;
     transition: border-left-color 0.2s;
-    -webkit-mask-image: var(--notch);
-    mask-image: var(--notch);
+    -webkit-clip-path: var(--notch);
+    clip-path: var(--notch);
   }
   .svc-card:hover { border-left-color: var(--orange); }
 
@@ -608,8 +620,8 @@
     text-transform: uppercase;
     padding: 14px 24px;
     text-decoration: none;
-    -webkit-mask-image: var(--notch-sm);
-    mask-image: var(--notch-sm);
+    -webkit-clip-path: var(--notch-sm);
+    clip-path: var(--notch-sm);
     transition: all 0.2s;
     display: flex;
     align-items: center;
@@ -650,8 +662,8 @@
     display: block;
     background: var(--black);
     padding: 16px 20px;
-    -webkit-mask-image: var(--notch);
-    mask-image: var(--notch);
+    -webkit-clip-path: var(--notch);
+    clip-path: var(--notch);
     border: 1.5px solid rgba(255,255,255,0.25);
     border-left: 3px solid var(--orange);
   }
