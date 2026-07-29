@@ -16,6 +16,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2QTV6FM38H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2QTV6FM38H');
+</script>
+
 <style>
 /* =====================================================
    YOUR CONTENT — Edit only SITE_DATA in the <script>
@@ -604,7 +613,7 @@
 
 <!-- =====================================================
      ✦ YOUR CONTENT — Edit freely inside SITE_DATA ✦
-     Save file, re-upload to Netlify to update.
+     Save file, run push.command to deploy.
      ===================================================== -->
 <script>
 const SITE_DATA = {
@@ -614,7 +623,7 @@ const SITE_DATA = {
   bio:      "Music for film, series, and brands.",
 
   imdb:      "https://www.imdb.com/name/nm10140983/",
-  instagram: "https://instagram.com/angaduday",
+  instagram: "https://instagram.com/angadudaymusic",
   email:     "angad.uday@gmail.com",
   whatsapp:  "918527344772",
   youtube:   "https://youtube.com/playlist?list=PLelIVuouvGQG-UqRc4fAzKpTW9f-Vj7Y3",
@@ -756,8 +765,7 @@ const SITE_DATA = {
 <section id="contact">
   <h2 class="contact-heading reveal">Let's Make<span>Something.</span></h2>
   <p class="contact-bio reveal">Music has always been less of a career choice and more of a biological requirement. I'm a Mumbai-based composer and producer working across film, series, advertising, and live production, driven by a detail-oriented approach and a deep belief that the wrong music can ruin anything. So let's get it right.</p>
-  <form class="contact-form reveal" name="contact" netlify netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="contact">
+  <form class="contact-form reveal" name="contact" action="https://formspree.io/f/xqeyvbqa" method="POST">
     <input type="text" name="name" placeholder="Your name" required>
     <input type="email" name="email" placeholder="Your email" required>
     <textarea name="message" placeholder="Tell me about the project"></textarea>
@@ -990,6 +998,10 @@ document.querySelectorAll('.bgm-audio').forEach(audio => {
     document.querySelectorAll('.bgm-audio').forEach(other => {
       if (other !== audio) other.pause();
     });
+    if (typeof gtag === 'function') {
+      const t = audio.previousElementSibling;
+      gtag('event', 'audio_play', { track: t ? t.textContent : 'unknown' });
+    }
   });
 });
 </script>
