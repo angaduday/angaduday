@@ -40,7 +40,7 @@
     --border:    #DDD9CF;
     --notch:     polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 10px) 100%, 0 100%);
     --notch-sm:  polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 5px) 100%, 0 100%);
-    --waveform:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpolyline points='0,10 4,15 8,6 12,17 16,4 20,12 24,8 28,18 32,3 36,11 40,16 44,7 48,13 52,9 56,19 60,5 64,12 68,8 72,16 76,4 80,10 84,14 88,6 92,12 96,9 100,10' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    --waveform:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cg fill='black'%3E%3Crect x='0' y='7.5' width='2.5' height='5' rx='1'/%3E%3Crect x='4' y='6' width='2.5' height='8' rx='1'/%3E%3Crect x='8' y='4' width='2.5' height='12' rx='1'/%3E%3Crect x='12' y='2.5' width='2.5' height='15' rx='1'/%3E%3Crect x='16' y='3.5' width='2.5' height='13' rx='1'/%3E%3Crect x='20' y='5.5' width='2.5' height='9' rx='1'/%3E%3Crect x='24' y='7' width='2.5' height='6' rx='1'/%3E%3Crect x='28' y='5' width='2.5' height='10' rx='1'/%3E%3Crect x='32' y='3' width='2.5' height='14' rx='1'/%3E%3Crect x='36' y='1.5' width='2.5' height='17' rx='1'/%3E%3Crect x='40' y='2.5' width='2.5' height='15' rx='1'/%3E%3Crect x='44' y='4.5' width='2.5' height='11' rx='1'/%3E%3Crect x='48' y='6.5' width='2.5' height='7' rx='1'/%3E%3Crect x='52' y='5' width='2.5' height='10' rx='1'/%3E%3Crect x='56' y='3' width='2.5' height='14' rx='1'/%3E%3Crect x='60' y='1.5' width='2.5' height='17' rx='1'/%3E%3Crect x='64' y='2.5' width='2.5' height='15' rx='1'/%3E%3Crect x='68' y='4.5' width='2.5' height='11' rx='1'/%3E%3Crect x='72' y='6' width='2.5' height='8' rx='1'/%3E%3Crect x='76' y='7.5' width='2.5' height='5' rx='1'/%3E%3Crect x='80' y='5.5' width='2.5' height='9' rx='1'/%3E%3Crect x='84' y='3.5' width='2.5' height='13' rx='1'/%3E%3Crect x='88' y='2' width='2.5' height='16' rx='1'/%3E%3Crect x='92' y='4' width='2.5' height='12' rx='1'/%3E%3Crect x='96' y='6' width='2.5' height='8' rx='1'/%3E%3C/g%3E%3C/svg%3E");
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -158,8 +158,8 @@
     mask-image: var(--waveform);
     -webkit-mask-repeat: repeat-x;
     mask-repeat: repeat-x;
-    -webkit-mask-size: 70px 14px;
-    mask-size: 70px 14px;
+    -webkit-mask-size: 85px 14px;
+    mask-size: 85px 14px;
   }
 
   .section-title {
