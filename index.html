@@ -40,7 +40,7 @@
     --border:    #DDD9CF;
     --notch:     polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 10px) 100%, 0 100%);
     --notch-sm:  polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 5px) 100%, 0 100%);
-    --waveform:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cg fill='black'%3E%3Crect x='0' y='8' width='3' height='4'/%3E%3Crect x='5' y='5.5' width='3' height='9'/%3E%3Crect x='10' y='3' width='3' height='14'/%3E%3Crect x='15' y='6.5' width='3' height='7'/%3E%3Crect x='20' y='1' width='3' height='18'/%3E%3Crect x='25' y='7.5' width='3' height='5'/%3E%3Crect x='30' y='4.5' width='3' height='11'/%3E%3Crect x='35' y='2' width='3' height='16'/%3E%3Crect x='40' y='8.5' width='3' height='3'/%3E%3Crect x='45' y='3.5' width='3' height='13'/%3E%3Crect x='50' y='6' width='3' height='8'/%3E%3Crect x='55' y='0.5' width='3' height='19'/%3E%3Crect x='60' y='7' width='3' height='6'/%3E%3Crect x='65' y='5' width='3' height='10'/%3E%3Crect x='70' y='2.5' width='3' height='15'/%3E%3Crect x='75' y='8' width='3' height='4'/%3E%3Crect x='80' y='4' width='3' height='12'/%3E%3Crect x='85' y='1.5' width='3' height='17'/%3E%3Crect x='90' y='7.5' width='3' height='5'/%3E%3Crect x='95' y='5.5' width='3' height='9'/%3E%3C/g%3E%3C/svg%3E");
+    --waveform:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpolyline points='0,10 4,15 8,6 12,17 16,4 20,12 24,8 28,18 32,3 36,11 40,16 44,7 48,13 52,9 56,19 60,5 64,12 68,8 72,16 76,4 80,10 84,14 88,6 92,12 96,9 100,10' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -151,15 +151,15 @@
   .section-header::after {
     content: '';
     display: block;
-    height: 10px;
+    height: 14px;
     margin-top: 8px;
     background-color: var(--black);
     -webkit-mask-image: var(--waveform);
     mask-image: var(--waveform);
     -webkit-mask-repeat: repeat-x;
     mask-repeat: repeat-x;
-    -webkit-mask-size: 60px 10px;
-    mask-size: 60px 10px;
+    -webkit-mask-size: 70px 14px;
+    mask-size: 70px 14px;
   }
 
   .section-title {
